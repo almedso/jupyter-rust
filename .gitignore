@@ -1,0 +1,6 @@
+# git ignore for jupyter notebooks:wq
+.ipynb_checkpoints
+
+
+# editor
+.vscode
