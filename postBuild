@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if  ! cargo --version ; then
+  # install rust via rustup
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  export PATH=$PATH:$HOME/.cargo/bin
+fi
+
+cargo install evcxr_jupyter  --no-default-features
+cargo install sccache
+evcxr_jupyter --install
