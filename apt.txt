@@ -1,2 +1,2 @@
 libzmq3-dev
-
+graphviz
