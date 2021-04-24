@@ -34,7 +34,7 @@ https://jupyter-tutorial.readthedocs.io/de/latest/workspace/jupyter/kernels/inst
 * R
 * Scala
 * Julia
-* **Rust**
+* *Rust** -> ./rust-kernel.md
 
 
 ## Jupyter Extensions
@@ -79,7 +79,7 @@ Binder nutzt *jupyterhub* und *repo2docker*
 
 https://github.com/jupyterhub/repo2docker
 
-Tool um ein (git) Repositoy mit Jupyter Notebooks im
+Tool um ein (git) Repository mit Jupyter Notebooks im
 Docker Container laufen zu lassen.
 
 ### Voraussetzungen
@@ -93,17 +93,30 @@ als gewöhnliches Python package
 
 ```
 pip3 install repo2docker
-``` 
+```
 
 ### Benutzung
 
-Ein Repositoy mit Jupyter Notebooks enthält neben den Notebooks auch
-Definitinen von Abhängigkeiten z.B. *requirements.txt* (pip)
-*environment.yml* (conda), cargo.toml 
+Ein Repository mit Jupyter Notebooks enthält neben den Notebooks auch
+Definitionen von Abhängigkeiten z.B. *requirements.txt* (pip)
+*environment.yml* (conda), cargo.toml?
 
 https://repo2docker.readthedocs.io/en/latest/usage.html
 
-(Originalbeispiel)
+configuration über
+
+* environment.yml (conda https://conda.io/projects/conda/en/latest/configuration.html)
+* requirements.txt (python packages)
+* apt.txt (debian packages)
+* postBuild (bash script)
+
+
+Note:
+
+conda context over pip, apt
+** platform independent, binary
+** support of tensorflow, gpu, scipy, opencv
+
 
 Au der Kommandozeile:
 
@@ -136,7 +149,7 @@ https://github.com/jupyterhub/jupyterhub
 
 # Jupyter und Docker Images
 
-Vorgefertigte Jupyter Dockercontainer
+Vorgefertigte Jupyter Docker Container
 
 * https://hub.docker.com/search?q=jupyter&type=image
 * https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html
