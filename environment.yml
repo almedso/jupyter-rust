@@ -1,0 +1,6 @@
+name: presentation environment
+channels:
+  - conda-forge
+dependencies:
+  - rise
+  - jupyterlab=3
