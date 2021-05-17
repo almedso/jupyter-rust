@@ -10,22 +10,30 @@ online viewer: https://nbviewer.jupyter.org/
 
 ## Jupyter Notebook and Jupyter Lab
 
-Jupiter Notebook ist das web basierte GUI for ein Jupyter Notebook.
-(je browser tab ein notebook)
+Jupiter Notebook is the WEB GUI for *a single* Jupyter Notebook.
+(One notebook per browser tab.)
 
 ```
 jupyter notebook
 ```
 
-Jupiter Lab ist nächste Generation GUI für Jupyter Notebooks.
-Jupyter Lab ist single tab.
+Jupiter Lab is the kind of next generation of WEB GUI for a set of Jupyter Notebooks.
+(Jupyter Lab is single tab.)
 
 ```
 jupyter lab
 ```
 
-## Jupyter Kernels
+## Visual Studio Code
 
+Pluggins:
+
+* Jupyter (14.4M downloads, 2.5 stars) - works ok
+* VSCode Jupyter (246k downlads, 3.5 stars)
+
+... there are more
+
+## Jupyter Kernels
 
 https://jupyter-tutorial.readthedocs.io/de/latest/workspace/jupyter/kernels/install.html
 
@@ -45,7 +53,8 @@ https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/
 
 ### Spell Checker Extension
 
-Brauche ich unbedingt ...
+This is what I need ...
+
 ```
 # on jupyter notebook
 pip install jupyter_contrib_nbextensions
@@ -58,7 +67,7 @@ jupyter labextension install @ijmbarr/jupyterlab_spellchecker
 
 ```
 
-## Dokumente formatieren
+## Format Documents
 
 Sphinx!
 
@@ -66,14 +75,14 @@ https://jupyter-tutorial.readthedocs.io/de/latest/workspace/jupyter/nbsphinx.htm
 
 # Binder
 
-Öffentlich verfügbare Execution Facility für Jupyternotebooks
-organisiert in git repositories. 
+Binder is a publicly available execution facility for Jupyter Notebooks
+which are organized in git repositories.
 
 https://mybinder.org/
 
-Projekt Info: https://jupyter.org/binder
+Project Info: https://jupyter.org/binder
 Binderhub (https://github.com/jupyterhub/binderhub)
-Binder nutzt *jupyterhub* und *repo2docker*
+Binder uses *jupyterhub* und *repo2docker*
 
 ## repo2docker Tool
 
@@ -82,28 +91,29 @@ https://github.com/jupyterhub/repo2docker
 Tool um ein (git) Repository mit Jupyter Notebooks im
 Docker Container laufen zu lassen.
 
-### Voraussetzungen
+### Prerequisites
 
-* python3 installiert, pip3 installiert
-* docker installiert; laufend; und lokale Rechte
+* python3 installed
+* pip3 installed
+* docker running with administrative access
 
 ### Installation
 
-als gewöhnliches Python package
+repo2docker is installed like any other python package.
 
 ```
 pip3 install repo2docker
 ```
 
-### Benutzung
+### Usage
 
-Ein Repository mit Jupyter Notebooks enthält neben den Notebooks auch
-Definitionen von Abhängigkeiten z.B. *requirements.txt* (pip)
-*environment.yml* (conda), cargo.toml?
+
+A repository with Jupyter Notebooks contains the notebooks and might contain
+optional dependency definitions.
 
 https://repo2docker.readthedocs.io/en/latest/usage.html
 
-configuration über
+Configuration could be expressed as follow
 
 * environment.yml (conda https://conda.io/projects/conda/en/latest/configuration.html)
 * requirements.txt (python packages)
@@ -114,25 +124,27 @@ configuration über
 Note:
 
 conda context over pip, apt
+
 ** platform independent, binary
 ** support of tensorflow, gpu, scipy, opencv
 
-
-Au der Kommandozeile:
+On the command line run:
 
 ```
 jupyter-repo2docker https://github.com/norvig/pytudes
 ```
-* baut ein Image (nutzt hinterlegte Abhängigkeiten um Extensions und Kernel zu installieren)
-* started das Docker image
-* bietet Url mit token z.B.
+
+* creates a docker image on the fly; installs specified dependencies to install extensions and kernels.
+* starts a docker container using the image built
+* binds Url with a token and gives information about this URL
+
   ```
   Copy/paste this URL into your browser when you connect for the first time,
   to login with a token:
     http://0.0.0.0:36511/?token=f94f8fabb92e22f5bfab116c382b4707fc2cade56ad1ace0
   ````
-* Ctrl-C stopped und löscht den Container
-* Image bleibt bestehen .. z.B.
+* Ctrl-C stops and removes the container
+* image is not removed; e.g.
   ```
   Volkers-MBP:volker$ docker images
   REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
@@ -141,15 +153,15 @@ jupyter-repo2docker https://github.com/norvig/pytudes
 
 ### Jupyterhub
 
-(kopiert aus dem README ...)
+(copied from README ...)
 With JupyterHub you can create a multi-user Hub which spawns, manages, and proxies multiple instances of the single-user Jupyter notebook server.
 
 https://github.com/jupyterhub/jupyterhub
 
 
-# Jupyter und Docker Images
+# Jupyter and Docker Images
 
-Vorgefertigte Jupyter Docker Container
+There are predefined Jupyter docker container
 
 * https://hub.docker.com/search?q=jupyter&type=image
 * https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html
@@ -158,8 +170,7 @@ Image dependencies
 
 * https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#image-relationships
 
-Beliebteste Container:
+Popular images:
 
 * https://hub.docker.com/r/jupyter/datascience-notebook (10M+ downloads)
 * https://hub.docker.com/r/jupyter/tensorflow-notebook (10M+ downloads)
-
