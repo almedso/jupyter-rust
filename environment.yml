@@ -4,3 +4,4 @@ channels:
 dependencies:
   - rise
   - jupyterlab=3
+  - jupyter_contrib_nbextensions

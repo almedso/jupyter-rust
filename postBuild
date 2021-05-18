@@ -9,3 +9,7 @@ fi
 cargo install evcxr_jupyter  --no-default-features
 cargo install sccache
 evcxr_jupyter --install
+
+# install spell checker (english)
+jupyter contrib nbextension install --user
+jupyter nbextension enable spellchecker/main
